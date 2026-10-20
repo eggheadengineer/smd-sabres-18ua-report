@@ -152,6 +152,13 @@ tr.lower td { color: var(--muted); }
 .nextgame span { font-size: .9rem; color: var(--muted); }
 .nextgame .go { color: var(--accent); font: 500 .8rem var(--f-mono); letter-spacing: .04em; }
 .nextgame:hover { border-color: var(--accent); }
+.upnext { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); text-decoration: none; font-size: .95rem; white-space: nowrap; }
+a.chip { border-color: var(--accent); color: var(--ink); font-weight: 600; }
+a.chip:hover { background: var(--accent-soft); }
+.chip.plain { color: var(--muted); }
+.chip .num { color: var(--muted); font-weight: 400; }
+.nextgame, .chip, .tabbar button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 </style>
 </head>
 <body>
@@ -298,7 +305,12 @@ tr.lower td { color: var(--muted); }
 
 <section>
   <h2>Up next</h2>
-  <p>Oct 25 at <a href="#frederick">Frederick Freeze</a>, Nov 1 at <a href="#easton">Easton Icehawks</a>, then home against Baltimore (Nov 7) and Navy (Nov 8).</p>
+  <div class="upnext">
+    <a class="chip" href="#frederick"><span class="num">Oct 25</span> at Frederick Freeze →</a>
+    <a class="chip" href="#easton"><span class="num">Nov 1</span> at Easton Icehawks →</a>
+    <span class="chip plain"><span class="num">Nov 7</span> vs Baltimore</span>
+    <span class="chip plain"><span class="num">Nov 8</span> vs Navy</span>
+  </div>
 </section>
 
 <footer>
