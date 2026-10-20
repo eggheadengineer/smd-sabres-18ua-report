@@ -146,8 +146,8 @@ tr.lower td { color: var(--muted); }
 .panel { display: grid; gap: 44px; }
 [hidden], .panel[hidden] { display: none !important; }
 .plan li b { font-weight: 600; }
-.nextgames { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-@media (max-width: 620px) { .nextgames { grid-template-columns: 1fr; } }
+.nextgames { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 760px) { .nextgames { grid-template-columns: 1fr; } }
 .nextgame { display: grid; gap: 4px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--rule); color: var(--ink); text-decoration: none; min-width: 0; }
 .nextgame b { font: 800 1.35rem/1.1 var(--f-display); text-transform: uppercase; }
 .nextgame span { font-size: .9rem; color: var(--muted); }
@@ -167,6 +167,7 @@ a.chip:hover { background: var(--accent-soft); }
 <nav class="tabbar" role="tablist" aria-label="Report sections">
   <button role="tab" id="tab-sabres" data-tab="sabres" aria-controls="panel-sabres" aria-selected="true">Sabres<small>Season so far</small></button>
   <button role="tab" id="tab-frederick" data-tab="frederick" aria-controls="panel-frederick" aria-selected="false">Frederick Freeze<small>Oct 25 · away</small></button>
+  <button role="tab" id="tab-nova" data-tab="nova" aria-controls="panel-nova" aria-selected="false">NOVA Ice Dogs<small>This weekend · exh.</small></button>
   <button role="tab" id="tab-easton" data-tab="easton" aria-controls="panel-easton" aria-selected="false">Easton Icehawks<small>Nov 1 · away</small></button>
 </nav>
 <div class="panel" id="panel-sabres" role="tabpanel" aria-labelledby="tab-sabres">
@@ -189,6 +190,7 @@ a.chip:hover { background: var(--accent-soft); }
 <section aria-label="Next games">
   <div class="nextgames">
     <a class="nextgame" href="#frederick"><span class="eyebrow">Sun Oct 25 · 6:30 PM · away</span><b>Frederick Freeze 18UA</b><span>3‑4‑2 · slow starters · strong goalie</span><span class="go">See opponent tab →</span></a>
+    <a class="nextgame" href="#nova"><span class="eyebrow">This weekend · exhibition · time TBA</span><b>NOVA Ice Dogs 18UA</b><span>2‑6 · 0‑6 vs 18UA teams · Sabres should be favored</span><span class="go">See opponent tab →</span></a>
     <a class="nextgame" href="#easton"><span class="eyebrow">Sun Nov 1 · 9:40 AM · away</span><b>Easton Icehawks 18UA</b><span>2‑1‑0 · 3 games played · watch the goalie</span><span class="go">See opponent tab →</span></a>
   </div>
 </section>
@@ -308,6 +310,7 @@ a.chip:hover { background: var(--accent-soft); }
   <h2>Up next</h2>
   <div class="upnext">
     <a class="chip" href="#frederick"><span class="num">Oct 25</span> at Frederick Freeze →</a>
+    <a class="chip" href="#nova"><span class="num">This weekend</span> vs NOVA Ice Dogs (exh.) →</a>
     <a class="chip" href="#easton"><span class="num">Nov 1</span> at Easton Icehawks →</a>
     <span class="chip plain"><span class="num">Nov 7</span> vs Baltimore</span>
     <span class="chip plain"><span class="num">Nov 8</span> vs Navy</span>
@@ -445,6 +448,115 @@ a.chip:hover { background: var(--accent-soft); }
 <footer>
   <p><b>Caveats.</b> Eight of Frederick's nine games were exhibitions, and teams sometimes play exhibitions with different lineups. Goalie starts aren't announced in advance.</p>
   <p>Source: GameSheet game sheets for all nine Frederick Freeze 18UA games, pulled Oct 20, 2026.</p>
+</footer>
+</div>
+<div class="panel" id="panel-nova" role="tabpanel" aria-labelledby="tab-nova" hidden>
+<header>
+  <div class="eyebrow">Exhibition · this weekend · day, time and rink not posted on GameSheet yet</div>
+  <h1>Northern Virginia Ice Dogs 18UA</h1>
+  <div class="record">
+    <span>All games <b class="num">2‑6‑0</b></span>
+    <span>vs 18UA teams <b class="num">0‑6‑0</b></span>
+    <span>Goals <b class="num">25 for, 27 against</b></span>
+  </div>
+</header>
+
+<section class="verdict" aria-label="Verdict">
+  <div class="big">The Sabres <span>should be favored</span></div>
+  <p>NOVA plays in the other 18UA division and hasn't beaten an 18UA team. Against six of them they're 0‑6, with 8 goals for and 26 against, and they've been outshot 162–85. Both of their wins came against LA teams the Sabres have also beaten easily. Watch #17 Colby Million, and check which goalie starts.</p>
+</section>
+
+<section aria-label="Offense, defense, goalies">
+  <div class="scorecard">
+    <div class="card"><span class="label">Offense</span><span class="pill bad">Weak vs UA</span><p>1.3 goals a game against 18UA teams. Colby Million has 8 goals, but 6 came against LA teams.</p></div>
+    <div class="card"><span class="label">Defense</span><span class="pill bad">Outshot badly</span><p>Gets 34% of the shots against 18UA teams; the Sabres get 40%. Gave up 7 to unbeaten Reston last weekend.</p></div>
+    <div class="card"><span class="label">Goalies</span><span class="pill ok">Shelby is solid</span><p>Shawn Shelby .917 against UA teams. Evan Ewell .804, and he has also played as a skater.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Same opponents, side by side</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Opponent</th><th>NOVA</th><th class="n">Shots</th><th>Sabres</th><th class="n">Shots</th></tr></thead>
+      <tbody>
+        <tr><td>Baltimore Stars 18UA</td><td class="num"><span class="l">L</span> 1–3</td><td class="n">15–28</td><td class="num"><span class="l">L</span> 1–2</td><td class="n">25–29</td></tr>
+        <tr><td>Frederick Freeze 18UA</td><td class="num"><span class="l">L</span> 1–6</td><td class="n">12–29</td><td class="num">Sun Oct 25</td><td class="n">—</td></tr>
+        <tr class="lower"><td>Navy Youth Hockey 18LA</td><td class="num"><span class="w">W</span> 8–1</td><td class="n">32–13</td><td class="num"><span class="w">W</span> 8–1</td><td class="n">35–7</td></tr>
+        <tr class="lower"><td>Hagerstown Bulldogs 18LA</td><td class="num"><span class="w">W</span> 9–0</td><td class="n">28–14</td><td class="num"><span class="w">W</span> 5–0</td><td class="n">27–13</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Against Baltimore, the one 18UA team both have played, the Sabres were much closer on shots. Frederick, the Sabres' other opponent this weekend, beat NOVA 6–1 with four goals in the 3rd period.</p>
+</section>
+
+<section>
+  <h2>Every game</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Date</th><th>Opponent</th><th class="n">Score</th><th class="n">Shots</th><th>Goalie (saves)</th><th class="n">Skaters</th></tr></thead>
+      <tbody>
+        <tr><td class="num">Sep 12</td><td>vs Baltimore 18UA <span class="tier">exh.</span></td><td class="n"><span class="l">L</span> 1–3</td><td class="n">15–28</td><td>Shelby 26/28</td><td class="n">12</td></tr>
+        <tr><td class="num">Sep 19</td><td>at Capitals Academy 18UA <span class="tier">league</span></td><td class="n"><span class="l">L</span> 1–2</td><td class="n">16–16</td><td>Ewell 14/16</td><td class="n">12</td></tr>
+        <tr><td class="num">Sep 26</td><td>at Piedmont 18UA <span class="tier">league</span></td><td class="n"><span class="l">L</span> 2–5</td><td class="n">14–22</td><td>Ewell 17/22</td><td class="n">12</td></tr>
+        <tr class="lower"><td class="num">Sep 27</td><td>vs Navy 18LA <span class="tier">exh.</span></td><td class="n"><span class="w">W</span> 8–1</td><td class="n">32–13</td><td>Shelby 12/13</td><td class="n">15</td></tr>
+        <tr><td class="num">Oct 3</td><td>vs Frederick 18UA <span class="tier">exh.</span></td><td class="n"><span class="l">L</span> 1–6</td><td class="n">12–29</td><td>Ewell 23/29</td><td class="n">9</td></tr>
+        <tr class="lower"><td class="num">Oct 4</td><td>vs Hagerstown 18LA <span class="tier">exh.</span></td><td class="n"><span class="w">W</span> 9–0</td><td class="n">28–14</td><td>Shelby 14/14 (Ewell skated, 2 goals)</td><td class="n">11</td></tr>
+        <tr><td class="num">Oct 17</td><td>at Ashburn 18UA <span class="tier">league</span></td><td class="n"><span class="l">L</span> 1–3</td><td class="n">16–32</td><td>Shelby 29/32</td><td class="n">11</td></tr>
+        <tr><td class="num">Oct 18</td><td>vs Reston 18UA (7‑0) <span class="tier">league</span></td><td class="n"><span class="l">L</span> 2–7</td><td class="n">12–35</td><td>Ewell 28/35</td><td class="n">12</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Goalies and scorers</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Goalie</th><th class="n">GP</th><th class="n">Shots</th><th class="n">GA</th><th class="n">Save %</th><th class="n">vs UA</th></tr></thead>
+      <tbody>
+        <tr><td>Shawn Shelby #26</td><td class="n">4</td><td class="n">87</td><td class="n">6</td><td class="n">.931</td><td class="n">.917</td></tr>
+        <tr><td>Evan Ewell #35</td><td class="n">4</td><td class="n">102</td><td class="n">20</td><td class="n">.804</td><td class="n">.804</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tier">They've alternated: Shelby played the last game on Oct 17, Ewell on Oct 18.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Player</th><th class="n">GP</th><th class="n">G</th><th class="n">A</th><th class="n">PTS</th><th class="n">vs UA (G‑A)</th></tr></thead>
+      <tbody>
+        <tr><td>Colby Million #17</td><td class="n">8</td><td class="n">8</td><td class="n">3</td><td class="n">11</td><td class="n">2‑2</td></tr>
+        <tr><td>Liam Rice #24</td><td class="n">7</td><td class="n">4</td><td class="n">2</td><td class="n">6</td><td class="n">2‑0</td></tr>
+        <tr><td>Nathaniel Gray #21</td><td class="n">7</td><td class="n">4</td><td class="n">1</td><td class="n">5</td><td class="n">2‑0</td></tr>
+        <tr><td>Arkady Troyan #34</td><td class="n">7</td><td class="n">3</td><td class="n">2</td><td class="n">5</td><td class="n">1‑1</td></tr>
+        <tr><td>Brendan Wiemer #13</td><td class="n">7</td><td class="n">2</td><td class="n">2</td><td class="n">4</td><td class="n">1‑0</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Bench and special teams</h2>
+  <div class="stats">
+    <div class="stat"><span class="v num">9–12</span><span class="k">Skaters dressed against 18UA teams, as short as the Sabres' 11–12</span></div>
+    <div class="stat hot"><span class="v num">0</span><span class="k">Power‑play goals in 8 games, while opponents took 36 penalties</span></div>
+    <div class="stat"><span class="v num">4</span><span class="k">Power‑play goals allowed, 3 of them to Frederick</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>What the Sabres can do</h2>
+  <ol class="needs">
+    <li><b>Shoot a lot.</b><span>18UA teams average 27 shots a game against NOVA. If Ewell is in net, volume should turn into goals.</span></li>
+    <li><b>Shadow #17 Colby Million.</b><span>He's their best scorer. Against 18UA teams the rest of the lineup has managed 6 goals in six games.</span></li>
+    <li><b>Use it to work on the power play.</b><span>It's an exhibition, and NOVA's own power play hasn't scored all season. A good game to try power‑play setups with little risk.</span></li>
+    <li><b>Mind the schedule.</b><span>This is one of two games this weekend. NOVA's bench is short too, so fresh legs in the 3rd should favor whoever manages shifts better.</span></li>
+  </ol>
+</section>
+
+<footer>
+  <p><b>Caveats.</b> This game isn't on GameSheet yet, so day, time and rink will be added once known. Exhibition lineups can differ from league games.</p>
+  <p>Source: GameSheet game sheets for all eight Northern Virginia Ice Dogs 18UA games, pulled Oct 20, 2026.</p>
 </footer>
 </div>
 <div class="panel" id="panel-easton" role="tabpanel" aria-labelledby="tab-easton" hidden>
