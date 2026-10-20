@@ -137,9 +137,24 @@ footer { font-size: .85rem; color: var(--muted); display: grid; gap: 8px; border
 .tier { font: 500 .68rem var(--f-mono); letter-spacing: .05em; color: var(--muted); }
 tr.lower td { color: var(--muted); }
 </style>
+<style>
+.tabbar { display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid var(--rule); padding-bottom: 0; }
+.tabbar button { font: 600 1rem var(--f-display); text-transform: uppercase; letter-spacing: .04em; color: var(--muted); background: none; border: 0; border-bottom: 3px solid transparent; padding: 10px 12px 9px; cursor: pointer; }
+.tabbar button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.tabbar button:hover { color: var(--ink); }
+.tabbar small { display: block; font: 400 .72rem var(--f-mono); letter-spacing: .02em; text-transform: none; color: var(--muted); }
+.panel { display: grid; gap: 44px; }
+.plan li b { font-weight: 600; }
+</style>
 </head>
 <body>
 <main class="wrap">
+<nav class="tabbar" role="tablist" aria-label="Report sections">
+  <button role="tab" id="tab-sabres" data-tab="sabres" aria-controls="panel-sabres" aria-selected="true">Sabres<small>Season so far</small></button>
+  <button role="tab" id="tab-frederick" data-tab="frederick" aria-controls="panel-frederick" aria-selected="false">Frederick Freeze<small>Oct 25 · away</small></button>
+  <button role="tab" id="tab-easton" data-tab="easton" aria-controls="panel-easton" aria-selected="false">Easton Icehawks<small>Nov 1 · away</small></button>
+</nav>
+<div class="panel" id="panel-sabres" role="tabpanel" aria-labelledby="tab-sabres">
 
 <header>
   <div class="eyebrow">Chesapeake Bay Hockey · 18U Upper Patrick Red · 2026‑27 · through Oct 17</div>
@@ -276,6 +291,223 @@ tr.lower td { color: var(--muted); }
   <p><b>Caveats.</b> Eight games, early in the season, and some opponents have played only a few other games, so opponent strength is rough. Full game sheets exist for 7 of the 8 games; the St. James exhibition has only the score, shots and goal times. GameSheet lists the power play at 1 for 3, but the game sheets show opponents called for 18 minors. Some of those were coincidental or short, so the real number of chances is somewhere in between.</p>
   <p>Source: <a href="https://gamesheetstats.com/seasons/15222/teams/524001/preview?configuration=34&amp;filter%5Btype%5D=regular_season&amp;filter%5Bstatus%5D=completed&amp;filter%5Bdivision%5D=81780">GameSheet team page</a> and game sheets, pulled Oct 17, 2026. Not affiliated with the team or league.</p>
 </footer>
+</div>
+<div class="panel" id="panel-frederick" role="tabpanel" aria-labelledby="tab-frederick" hidden>
+<header>
+  <div class="eyebrow">Next game · Sun Oct 25, 6:30 PM · at Skate Frederick Rink #2 · rematch at home Nov 21</div>
+  <h1>Frederick Freeze 18UA</h1>
+  <div class="record">
+    <span>All games <b class="num">3‑4‑2</b></span>
+    <span>League games <b class="num">0‑1‑0</b></span>
+    <span>Goals <b class="num">19 for, 27 against</b></span>
+  </div>
+</header>
+
+<section class="verdict" aria-label="Verdict">
+  <div class="big">A <span>winnable</span> game</div>
+  <p>Frederick has played 9 games, but only one counted in the league; the rest were exhibitions. Against 18UA/AA teams they're 1‑4‑2, with 13 goals for and 25 against, and they've been shut out three times. They start slowly, giving up 12 of their 27 goals against in 1st periods. Their best player is goalie Noah Dockens.</p>
+</section>
+
+<section aria-label="Offense, defense, goalies">
+  <div class="scorecard">
+    <div class="card"><span class="label">Offense</span><span class="pill bad">Thin</span><p>1.9 goals a game against UA/AA teams, and 1.2 if you take out a 6–1 win over a 2‑6 team. No player has more than 4 goals.</p></div>
+    <div class="card"><span class="label">Defense</span><span class="pill bad">Outshot</span><p>Outshot 151–119 by UA/AA teams (44% of the shots). Slow starts: 12 goals against in 1st periods.</p></div>
+    <div class="card"><span class="label">Goalies</span><span class="pill ok">Dockens is good</span><p>Noah Dockens .927 overall and .905 against UA/AA teams. Thomas Hazel is about .85.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Same opponents, side by side</h2>
+  <p>Five teams have played both Frederick and the Sabres. On results and shots, the Sabres have done as well or better against each one.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Opponent</th><th>Frederick</th><th class="n">Shots</th><th>Sabres</th><th class="n">Shots</th></tr></thead>
+      <tbody>
+        <tr><td>Baltimore Stars 18UA</td><td class="num"><span class="l">L</span> 0–3</td><td class="n">20–36</td><td class="num"><span class="l">L</span> 1–2</td><td class="n">25–29</td></tr>
+        <tr><td>Tri‑City Eagles 18UA</td><td class="num">T 2–2</td><td class="n">17–28</td><td class="num">T 2–2</td><td class="n">14–30</td></tr>
+        <tr><td>Potomac Patriots 18UA</td><td class="num">T 3–3</td><td class="n">24–20</td><td class="num"><span class="w">W</span> 5–0</td><td class="n">19–20</td></tr>
+        <tr><td>The St. James 18AA</td><td class="num"><span class="l">L</span> 2–6</td><td class="n">14–30</td><td class="num"><span class="l">L</span> 1–3</td><td class="n">11–34</td></tr>
+        <tr class="lower"><td>Hagerstown Bulldogs 18LA</td><td class="num"><span class="w">W</span> 5–2, <span class="w">W</span> 1–0</td><td class="n">67–35</td><td class="num"><span class="w">W</span> 5–0</td><td class="n">27–13</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Every game</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Date</th><th>Opponent</th><th class="n">Score</th><th class="n">Shots</th><th>Goalie (saves)</th></tr></thead>
+      <tbody>
+        <tr class="lower"><td class="num">Aug 29</td><td>at Hagerstown 18LA <span class="tier">exh.</span></td><td class="n"><span class="w">W</span> 5–2</td><td class="n">30–20</td><td>Hazel 7/9, Dockens 11/11</td></tr>
+        <tr><td class="num">Sep 12</td><td>vs St. James 16AA <span class="tier">exh.</span></td><td class="n"><span class="l">L</span> 0–7</td><td class="n">—</td><td>Hazel</td></tr>
+        <tr><td class="num">Sep 13</td><td>at Baltimore 18UA <span class="tier">league</span></td><td class="n"><span class="l">L</span> 0–3</td><td class="n">20–36</td><td>Dockens 33/36</td></tr>
+        <tr><td class="num">Sep 19</td><td>at Reston 18UA (7‑0) <span class="tier">exh.</span></td><td class="n"><span class="l">L</span> 0–3</td><td class="n">15–25</td><td>Hazel 22/24</td></tr>
+        <tr class="lower"><td class="num">Sep 20</td><td>vs Hagerstown 18LA <span class="tier">exh.</span></td><td class="n"><span class="w">W</span> 1–0</td><td class="n">37–15</td><td>Dockens 15/15</td></tr>
+        <tr><td class="num">Oct 3</td><td>at NoVA Ice Dogs 18UA (2‑6) <span class="tier">exh.</span></td><td class="n"><span class="w">W</span> 6–1</td><td class="n">29–12</td><td>Hazel 11/12</td></tr>
+        <tr><td class="num">Oct 4</td><td>vs Tri‑City 18UA <span class="tier">exh.</span></td><td class="n">T 2–2</td><td class="n">17–28</td><td>Dockens 26/28</td></tr>
+        <tr><td class="num">Oct 11</td><td>vs Potomac 18UA <span class="tier">exh.</span></td><td class="n">T 3–3</td><td class="n">24–20</td><td>Dockens 17/20</td></tr>
+        <tr><td class="num">Oct 17</td><td>at St. James 18AA <span class="tier">exh.</span></td><td class="n"><span class="l">L</span> 2–6</td><td class="n">14–30</td><td>Hazel 24/30</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tier">The Sep 12 game's shots look like they were entered for the wrong team (38–9 in a 0–7 loss), so this page leaves them out.</p>
+</section>
+
+<section>
+  <h2>When they score and give up goals</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Period</th><th class="n">Goals for</th><th class="n">Goals against</th></tr></thead>
+      <tbody>
+        <tr><td>1st</td><td class="n">4</td><td class="n">12</td></tr>
+        <tr><td>2nd</td><td class="n">6</td><td class="n">7</td></tr>
+        <tr><td>3rd</td><td class="n">9</td><td class="n">8</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Frederick gets better as games go on. Six of the 12 first‑period goals against came in the two St. James games, but they've trailed after the 1st in six of nine games.</p>
+</section>
+
+<section>
+  <h2>Goalies and scorers</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Goalie</th><th class="n">GP</th><th class="n">Shots</th><th class="n">GA</th><th class="n">Save %</th><th class="n">vs UA/AA</th></tr></thead>
+      <tbody>
+        <tr><td>Noah Dockens #56</td><td class="n">5</td><td class="n">110</td><td class="n">8</td><td class="n">.927</td><td class="n">.905</td></tr>
+        <tr><td>Thomas Hazel #18</td><td class="n">5</td><td class="n">75</td><td class="n">11</td><td class="n">.853</td><td class="n">.864</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tier">Hazel's line leaves out the Sep 12 game with bad shot data. Dockens started their only league game.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Player</th><th class="n">GP</th><th class="n">G</th><th class="n">A</th><th class="n">PTS</th><th class="n">PIM</th></tr></thead>
+      <tbody>
+        <tr><td>Austin Alletag #29</td><td class="n">8</td><td class="n">4</td><td class="n">2</td><td class="n">6</td><td class="n">4</td></tr>
+        <tr><td>Braeden O'Neil #17</td><td class="n">9</td><td class="n">3</td><td class="n">3</td><td class="n">6</td><td class="n">2</td></tr>
+        <tr><td>Tyler Compher #77</td><td class="n">9</td><td class="n">2</td><td class="n">2</td><td class="n">4</td><td class="n">7</td></tr>
+        <tr><td>Maximus Nuckols #72</td><td class="n">9</td><td class="n">1</td><td class="n">3</td><td class="n">4</td><td class="n">12</td></tr>
+        <tr><td>Ryan Mahoney #69</td><td class="n">8</td><td class="n">2</td><td class="n">0</td><td class="n">2</td><td class="n">2</td></tr>
+        <tr><td>Nathaniel Nadelberg #19</td><td class="n">9</td><td class="n">1</td><td class="n">2</td><td class="n">3</td><td class="n">47</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Bench and special teams</h2>
+  <div class="stats">
+    <div class="stat"><span class="v num">13–16</span><span class="k">Skaters dressed per game. The Sabres have dressed 11–12.</span></div>
+    <div class="stat"><span class="v num">4</span><span class="k">Power‑play goals, 3 of them in one game; 1 allowed</span></div>
+    <div class="stat"><span class="v num">4.7</span><span class="k">Minor or major penalties a game (42 in 9)</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>What the Sabres can do</h2>
+  <ol class="needs">
+    <li><b>Start fast.</b><span>Frederick has trailed after the 1st in six of nine games. An early goal puts them in a hole they haven't climbed out of often.</span></li>
+    <li><b>Get pucks and bodies to the net.</b><span>Dockens is their strength. Clean shots from outside won't beat him; screens and rebounds will.</span></li>
+    <li><b>Make the power play count.</b><span>Frederick takes almost five penalties a game. That's the Sabres' best chance yet to get the power play going.</span></li>
+    <li><b>Manage the bench.</b><span>Frederick will likely have 3 or 4 more skaters and plays its best hockey in the 3rd. Short shifts matter.</span></li>
+  </ol>
+</section>
+
+<footer>
+  <p><b>Caveats.</b> Eight of Frederick's nine games were exhibitions, and teams sometimes play exhibitions with different lineups. Goalie starts aren't announced in advance.</p>
+  <p>Source: GameSheet game sheets for all nine Frederick Freeze 18UA games, pulled Oct 20, 2026.</p>
+</footer>
+</div>
+<div class="panel" id="panel-easton" role="tabpanel" aria-labelledby="tab-easton" hidden>
+<header>
+  <div class="eyebrow">Sun Nov 1, 9:40 AM · at Talbot County Community Center</div>
+  <h1>Easton Icehawks 18UA</h1>
+  <div class="record">
+    <span>All games <b class="num">2‑1‑0</b></span>
+    <span>League games <b class="num">1‑1‑0</b></span>
+    <span>Goals <b class="num">11 for, 8 against</b></span>
+  </div>
+</header>
+
+<section class="verdict" aria-label="Verdict">
+  <div class="big">Watch <span>the goalie</span></div>
+  <p>Easton has played only three games, so treat this as a first look. Their only game against an 18UA team was a 3–2 loss to Baltimore where they were outshot 48–26 and goalie Jackson Meador made 45 saves. Their two wins came against Hagerstown 18LA, a 0‑7‑1 team. Which goalie plays matters a lot.</p>
+</section>
+
+<section aria-label="Offense, defense, goalies">
+  <div class="scorecard">
+    <div class="card"><span class="label">Offense</span><span class="pill bad">Unproven</span><p>Nine goals in two games against Hagerstown, which scores 1.4 a game. Only 2 goals against Baltimore.</p></div>
+    <div class="card"><span class="label">Defense</span><span class="pill bad">Leaky</span><p>Gave up 5 goals on 33 shots to Hagerstown. The Sabres shut Hagerstown out.</p></div>
+    <div class="card"><span class="label">Goalies</span><span class="pill ok">Meador</span><p>Jackson Meador stopped 45 of 48 against Baltimore. Clay Martin is .848 in two games.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Same opponents, side by side</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Opponent</th><th>Easton</th><th class="n">Shots</th><th>Sabres</th><th class="n">Shots</th></tr></thead>
+      <tbody>
+        <tr><td>Baltimore Stars 18UA</td><td class="num"><span class="l">L</span> 2–3</td><td class="n">26–48</td><td class="num"><span class="l">L</span> 1–2</td><td class="n">25–29</td></tr>
+        <tr class="lower"><td>Hagerstown Bulldogs 18LA</td><td class="num"><span class="w">W</span> 5–2, <span class="w">W</span> 4–3</td><td class="n">90–33</td><td class="num"><span class="w">W</span> 5–0</td><td class="n">27–13</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Against the same two teams, the Sabres gave up 2 goals in two games. Easton gave up 8 in three.</p>
+</section>
+
+<section>
+  <h2>Every game</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Date</th><th>Opponent</th><th class="n">Score</th><th class="n">Shots</th><th>Goalie (saves)</th><th class="n">Skaters</th></tr></thead>
+      <tbody>
+        <tr><td class="num">Sep 27</td><td>vs Baltimore 18UA <span class="tier">league</span></td><td class="n"><span class="l">L</span> 2–3</td><td class="n">26–48</td><td>Meador 45/48</td><td class="n">18</td></tr>
+        <tr class="lower"><td class="num">Oct 17</td><td>vs Hagerstown 18LA <span class="tier">exh.</span></td><td class="n"><span class="w">W</span> 5–2</td><td class="n">50–15</td><td>Martin 13/15</td><td class="n">13</td></tr>
+        <tr class="lower"><td class="num">Oct 18</td><td>vs Hagerstown 18LA <span class="tier">league</span></td><td class="n"><span class="w">W</span> 4–3</td><td class="n">40–18</td><td>Martin 15/18</td><td class="n">14</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Scorers and penalties</h2>
+  <p>Nine different players have scored their 11 goals, and nobody has more than 2. No power‑play goals for or against in three games.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Player</th><th class="n">GP</th><th class="n">G</th><th class="n">A</th><th class="n">PTS</th><th class="n">PIM</th></tr></thead>
+      <tbody>
+        <tr><td>Thomas Dukehart #8</td><td class="n">3</td><td class="n">2</td><td class="n">1</td><td class="n">3</td><td class="n">0</td></tr>
+        <tr><td>Samuel Jensen #3</td><td class="n">2</td><td class="n">2</td><td class="n">0</td><td class="n">2</td><td class="n">2</td></tr>
+        <tr><td>Gavin Corner #15</td><td class="n">3</td><td class="n">1</td><td class="n">1</td><td class="n">2</td><td class="n">4</td></tr>
+        <tr><td>Trent Amidon #39</td><td class="n">3</td><td class="n">1</td><td class="n">1</td><td class="n">2</td><td class="n">0</td></tr>
+        <tr><td>Christopher Howie #4</td><td class="n">2</td><td class="n">1</td><td class="n">0</td><td class="n">1</td><td class="n">16</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="v num">13–18</span><span class="k">Skaters dressed per game. The Sabres have dressed 11–12.</span></div>
+    <div class="stat hot"><span class="v num">13</span><span class="k">Minor or major penalties in their one game against an 18UA team (Baltimore)</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>What the Sabres can do</h2>
+  <ol class="needs">
+    <li><b>Find out who's in goal.</b><span>Meador stopped 94% against Baltimore; Martin is under 85%. Against Martin, shooting from anywhere pays off.</span></li>
+    <li><b>Draw penalties and convert.</b><span>Easton took 13 penalties against Baltimore. A disciplined game from the Sabres could mean a lot of power‑play time.</span></li>
+    <li><b>Make it a low‑scoring game.</b><span>Easton gave up 5 goals to a team the Sabres' goalies shut out. If the Sabres keep shots to the outside, their goaltending should be the difference.</span></li>
+  </ol>
+</section>
+
+<footer>
+  <p><b>Caveats.</b> Three games is a very small sample, and only one was against an 18UA team. Easton may play again before Nov 1; this tab should be refreshed after next weekend.</p>
+  <p>Source: GameSheet game sheets for all three Easton Icehawks 18UA games, pulled Oct 20, 2026.</p>
+</footer>
+</div>
+
 
 </main>
 <script>
@@ -310,6 +542,28 @@ tr.lower td { color: var(--muted); }
     if (v === 40) s.style.transform = "translateX(-100%)";
     t.appendChild(s);
   });
+})();
+</script>
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabbar button'));
+  function show(name) {
+    var found = false;
+    tabs.forEach(function (b) {
+      var on = b.dataset.tab === name; if (on) found = true;
+      b.setAttribute('aria-selected', on ? 'true' : 'false'); b.tabIndex = on ? 0 : -1;
+      document.getElementById('panel-' + b.dataset.tab).hidden = !on;
+    });
+    if (!found) show('sabres');
+  }
+  tabs.forEach(function (b, i) {
+    b.addEventListener('click', function () { show(b.dataset.tab); try { history.replaceState(null, '', '#' + b.dataset.tab); } catch (e) {} });
+    b.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); n.click();
+    });
+  });
+  show((location.hash || '#sabres').slice(1));
 })();
 </script>
 </body>
