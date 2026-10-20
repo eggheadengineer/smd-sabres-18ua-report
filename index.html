@@ -145,6 +145,13 @@ tr.lower td { color: var(--muted); }
 .tabbar small { display: block; font: 400 .72rem var(--f-mono); letter-spacing: .02em; text-transform: none; color: var(--muted); }
 .panel { display: grid; gap: 44px; }
 .plan li b { font-weight: 600; }
+.nextgames { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 620px) { .nextgames { grid-template-columns: 1fr; } }
+.nextgame { display: grid; gap: 4px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--rule); color: var(--ink); text-decoration: none; min-width: 0; }
+.nextgame b { font: 800 1.35rem/1.1 var(--f-display); text-transform: uppercase; }
+.nextgame span { font-size: .9rem; color: var(--muted); }
+.nextgame .go { color: var(--accent); font: 500 .8rem var(--f-mono); letter-spacing: .04em; }
+.nextgame:hover { border-color: var(--accent); }
 </style>
 </head>
 <body>
@@ -169,6 +176,13 @@ tr.lower td { color: var(--muted); }
 <section class="verdict" aria-label="Verdict">
   <div class="big">The need is <span>the puck</span></div>
   <p>The Sabres spend too much of each game defending. Against 18UA/AA teams they get only 40% of the shots, they're outshot in every period, and the 2nd period is the worst. The goalies have covered for it, but late in games the chances against get better and goals follow: 6 of the 9 division goals against have come in the 3rd. A short bench of 11 or 12 skaters a night is a likely cause, and scoring leans on four forwards.</p>
+</section>
+
+<section aria-label="Next games">
+  <div class="nextgames">
+    <a class="nextgame" href="#frederick"><span class="eyebrow">Sun Oct 25 · 6:30 PM · away</span><b>Frederick Freeze 18UA</b><span>3‑4‑2 · slow starters · strong goalie</span><span class="go">See opponent tab →</span></a>
+    <a class="nextgame" href="#easton"><span class="eyebrow">Sun Nov 1 · 9:40 AM · away</span><b>Easton Icehawks 18UA</b><span>2‑1‑0 · 3 games played · watch the goalie</span><span class="go">See opponent tab →</span></a>
+  </div>
 </section>
 
 <section aria-label="Offense, defense, goalies">
@@ -284,7 +298,7 @@ tr.lower td { color: var(--muted); }
 
 <section>
   <h2>Up next</h2>
-  <p>Oct 25 at Frederick, Nov 1 at Easton, then home against Baltimore (Nov 7) and Navy (Nov 8).</p>
+  <p>Oct 25 at <a href="#frederick">Frederick Freeze</a>, Nov 1 at <a href="#easton">Easton Icehawks</a>, then home against Baltimore (Nov 7) and Navy (Nov 8).</p>
 </section>
 
 <footer>
@@ -557,12 +571,27 @@ tr.lower td { color: var(--muted); }
     if (!found) show('sabres');
   }
   tabs.forEach(function (b, i) {
-    b.addEventListener('click', function () { show(b.dataset.tab); try { history.replaceState(null, '', '#' + b.dataset.tab); } catch (e) {} });
+    b.addEventListener('click', function () { go(b.dataset.tab); });
     b.addEventListener('keydown', function (e) {
       if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
       var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); n.click();
     });
   });
+  function go(name) {
+    show(name);
+    try { history.pushState(null, '', '#' + name); } catch (e) {}
+    var bar = document.querySelector('.tabbar');
+    if (bar && bar.getBoundingClientRect().top < 0) bar.scrollIntoView({ block: 'start' });
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var name = a.getAttribute('href').slice(1);
+    if (!document.getElementById('panel-' + name)) return;
+    e.preventDefault(); go(name);
+  });
+  window.addEventListener('hashchange', function () { show((location.hash || '#sabres').slice(1)); });
+  window.addEventListener('popstate', function () { show((location.hash || '#sabres').slice(1)); });
   show((location.hash || '#sabres').slice(1));
 })();
 </script>
