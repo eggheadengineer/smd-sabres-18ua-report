@@ -161,6 +161,34 @@ a.chip:hover { background: var(--accent-soft); }
 .chip .num { color: var(--muted); font-weight: 400; }
 .nextgame, .chip, .tabbar button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 </style>
+<style>
+/* goalie-by-period dot plot */
+:root { --g1: #1d4ea1; --g2: #b8860b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --g1: #5f8fe0; --g2: #b5861c; } }
+:root[data-theme="dark"] { --g1: #5f8fe0; --g2: #b5861c; }
+.gp .legend .d1, .gp .legend .d2 { width: 11px; height: 11px; display: inline-block; background: var(--g1); border-radius: 50%; }
+.gp .legend .d2 { background: var(--g2); border-radius: 1px; transform: rotate(45deg) scale(.85); }
+.gprow { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: 10px; align-items: center; }
+.gprow .per { font: 600 .9rem var(--f-display); text-transform: uppercase; letter-spacing: .04em; }
+.gprow.all .per { color: var(--muted); }
+.gprow.all { border-top: 1px solid var(--rule); padding-top: 8px; }
+.gtrack { position: relative; height: 58px; }
+.gtrack .grid { position: absolute; inset: 0; background-image: linear-gradient(to right, var(--rule) 1px, transparent 1px); background-size: calc(100% / 3) 100%; opacity: .55; }
+.gtrack .line { position: absolute; left: 0; right: 0; top: 29px; height: 1px; background: var(--rule); }
+.gdot { position: absolute; top: 29px; width: 28px; height: 28px; margin: -14px 0 0 -14px; display: grid; place-items: center; cursor: default; }
+.gdot i { width: 12px; height: 12px; border-radius: 50%; background: var(--g1); box-shadow: 0 0 0 2px var(--surface); }
+.gdot.c i { background: var(--g2); border-radius: 1px; transform: rotate(45deg) scale(.88); }
+.gdot .lab { position: absolute; left: 50%; transform: translateX(-50%); font: 500 .74rem var(--f-mono); color: var(--ink); white-space: nowrap; }
+.gdot.w .lab { bottom: 22px; } .gdot.c .lab { top: 22px; }
+.gdot .gtip { position: absolute; z-index: 3; bottom: 34px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--bg); font: .76rem/1.35 var(--f-mono); padding: 6px 9px; border-radius: 3px; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity .12s; }
+.gdot:hover .gtip, .gdot:focus .gtip { opacity: 1; }
+.gdot.edge-r .gtip { left: auto; right: 0; transform: none; }
+.gaxis { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: 10px; }
+.gaxis .ticks { position: relative; height: 1.2rem; font: .72rem var(--f-mono); color: var(--muted); }
+.gaxis .ticks span { position: absolute; transform: translateX(-50%); }
+.gp .tbl td.n small { color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .gdot .gtip { transition: none; } }
+</style>
 </head>
 <body>
 <main class="wrap">
@@ -297,7 +325,30 @@ a.chip:hover { background: var(--accent-soft); }
       </tbody>
     </table>
   </div>
-  <p class="tier">St. James exhibition (31 saves on 34 shots) isn't broken out by goalie on GameSheet. The NOVA and Easton games aren't on GameSheet at all.</p>
+  <p class="tier">St. James exhibition (31 saves on 34 shots) is left out of this table: Conklin played the first 32 minutes (22 saves on 24) and Watson the rest (9 on 10). The NOVA and Easton games aren't on GameSheet at all.</p>
+  <h3 style="margin-top:28px">Save % by period</h3>
+  <p>All 10 posted games, including the St. James exhibition, where Conklin played the first 32 minutes and Watson the rest.</p>
+  <div class="chart gp" role="group" aria-label="Save percentage by period for each goalie">
+    <div class="legend"><span><i class="d1"></i>Tyler Watson #50</span><span><i class="d2"></i>Thomas Conklin #43</span></div>
+    <div id="gp-rows"></div>
+    <div class="gaxis"><span></span><div class="ticks" id="gp-ticks"></div></div>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Goalie</th><th class="n">1st</th><th class="n">2nd</th><th class="n">3rd</th><th class="n">All</th></tr></thead>
+      <tbody>
+        <tr><td>Watson</td><td class="n">32/36 <small>.889</small></td><td class="n">31/31 <small>1.000</small></td><td class="n">38/39 <small>.974</small></td><td class="n">101/106 <small>.953</small></td></tr>
+        <tr><td>Conklin</td><td class="n">54/54 <small>1.000</small></td><td class="n">39/42 <small>.929</small></td><td class="n">40/46 <small>.870</small></td><td class="n">133/142 <small>.937</small></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="plain">
+    <li><b>Watson is strongest late.</b> He hasn't allowed a 2nd‑period goal, and his only 3rd‑period goal against came in relief at St. James. Four of his five goals against came in 1st periods: two by Baltimore on Oct 4, one by Navy, and one by Baltimore on Nov 7. The early minutes are where he can improve.</li>
+    <li><b>Conklin is the opposite.</b> He's perfect in 1st periods (54 shots), but 6 of his 9 goals against came in 3rd periods: two each against Jr. Black Bears on Sep 26, Tri‑City and Jr. Black Bears on Oct 17. Those were the games where a short Sabres bench was outshot late, so not all of it is on him.</li>
+    <li><b>Team view.</b> The 3rd‑period problem from earlier in the season came mostly in Conklin's starts. Watson's starts have had the 1st‑period goals.</li>
+  </ul>
+  <p class="tier">Each period is 31 to 54 shots, so one goal moves a save % by about .020 to .030. GameSheet doesn't track shot quality, and Watson's line includes two games against LA teams (Navy and Hagerstown, 1 goal against on 20 shots).</p>
+
 </section>
 
 <section>
@@ -779,6 +830,40 @@ a.chip:hover { background: var(--accent-soft); }
   window.addEventListener('hashchange', function () { show((location.hash || '#sabres').slice(1)); });
   window.addEventListener('popstate', function () { show((location.hash || '#sabres').slice(1)); });
   show((location.hash || '#sabres').slice(1));
+})();
+</script>
+<script>
+(function () {
+  var MIN = 0.85, MAX = 1.0;
+  var rows = [
+    { p: "1st", w: [32, 36], c: [54, 54] },
+    { p: "2nd", w: [31, 31], c: [39, 42] },
+    { p: "3rd", w: [38, 39], c: [40, 46] },
+    { p: "All", w: [101, 106], c: [133, 142], all: true }
+  ];
+  function pos(v) { return Math.max(0, Math.min(100, (v - MIN) / (MAX - MIN) * 100)); }
+  function f3(v) { return v >= 1 ? "1.000" : v.toFixed(3).slice(1); }
+  function dot(cls, name, per, sv) {
+    var v = sv[0] / sv[1], x = pos(v), ga = sv[1] - sv[0];
+    var tip = name + " · " + (per === "All" ? "all periods" : per + " period") + ": " + sv[0] + " saves on " + sv[1] + " shots, " + ga + " GA";
+    return '<div class="gdot ' + cls + (x > 80 ? ' edge-r' : '') + '" tabindex="0" style="left:' + x + '%" aria-label="' + tip + '">' +
+      '<i></i><span class="lab">' + f3(v) + '</span><span class="gtip">' + tip + '</span></div>';
+  }
+  var host = document.getElementById("gp-rows");
+  rows.forEach(function (r) {
+    var el = document.createElement("div");
+    el.className = "gprow" + (r.all ? " all" : "");
+    el.innerHTML = '<div class="per">' + r.p + '</div><div class="gtrack"><div class="grid"></div><div class="line"></div>' +
+      dot("w", "Watson", r.p, r.w) + dot("c", "Conklin", r.p, r.c) + '</div>';
+    host.appendChild(el);
+  });
+  var t = document.getElementById("gp-ticks");
+  [0.85, 0.90, 0.95, 1.0].forEach(function (v) {
+    var s = document.createElement("span"); s.textContent = f3(v); s.style.left = pos(v) + "%";
+    if (v === 1.0) s.style.transform = "translateX(-100%)";
+    if (v === 0.85) s.style.transform = "none";
+    t.appendChild(s);
+  });
 })();
 </script>
 </body>
