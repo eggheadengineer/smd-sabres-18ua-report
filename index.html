@@ -183,6 +183,7 @@ a.chip:hover { background: var(--accent-soft); }
 .gdot .gtip { position: absolute; z-index: 3; bottom: 34px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--bg); font: .76rem/1.35 var(--f-mono); padding: 6px 9px; border-radius: 3px; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity .12s; }
 .gdot:hover .gtip, .gdot:focus .gtip { opacity: 1; }
 .gdot.edge-r .gtip { left: auto; right: 0; transform: none; }
+.gdot.edge-r .lab { left: auto; right: 4px; transform: none; }
 .gaxis { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: 10px; }
 .gaxis .ticks { position: relative; height: 1.2rem; font: .72rem var(--f-mono); color: var(--muted); }
 .gaxis .ticks span { position: absolute; transform: translateX(-50%); }
@@ -335,10 +336,12 @@ a.chip:hover { background: var(--accent-soft); }
   </div>
   <div class="tbl">
     <table>
-      <thead><tr><th>Goalie</th><th class="n">1st</th><th class="n">2nd</th><th class="n">3rd</th><th class="n">All</th></tr></thead>
+      <thead><tr><th>Period</th><th class="n">Watson saves/shots</th><th class="n">Conklin saves/shots</th></tr></thead>
       <tbody>
-        <tr><td>Watson</td><td class="n">32/36 <small>.889</small></td><td class="n">31/31 <small>1.000</small></td><td class="n">38/39 <small>.974</small></td><td class="n">101/106 <small>.953</small></td></tr>
-        <tr><td>Conklin</td><td class="n">54/54 <small>1.000</small></td><td class="n">39/42 <small>.929</small></td><td class="n">40/46 <small>.870</small></td><td class="n">133/142 <small>.937</small></td></tr>
+        <tr><td>1st</td><td class="n">32/36 <small>.889</small></td><td class="n">54/54 <small>1.000</small></td></tr>
+        <tr><td>2nd</td><td class="n">31/31 <small>1.000</small></td><td class="n">39/42 <small>.929</small></td></tr>
+        <tr><td>3rd</td><td class="n">38/39 <small>.974</small></td><td class="n">40/46 <small>.870</small></td></tr>
+        <tr><td>All</td><td class="n">101/106 <small>.953</small></td><td class="n">133/142 <small>.937</small></td></tr>
       </tbody>
     </table>
   </div>
